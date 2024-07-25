@@ -20,7 +20,7 @@ class ObjectDetector(Node):
         self.subscription = self.create_subscription(LaserScan, '/scan', self.listener_callback, qos_profile)
         self.camera_subscription = self.create_subscription(CompressedImage, '/camera', self.camera_callback, 10)
         
-        self.model = YOLO('best.onnx')
+        self.model = YOLO('detector.pt')
         self.conf = 0.3
 
         self.image_center_x = 160
